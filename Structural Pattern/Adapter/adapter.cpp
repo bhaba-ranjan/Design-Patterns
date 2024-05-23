@@ -2,7 +2,7 @@
 // Let's say you have a legacy client: that takes XML objects and the properties is in Meter
 // You want to integrate a new library that works with JSON objects and the properties should be provided in Kilo Meter
 // To make this two library work with each other you need to do something
-// You can create a class that follows the interface(or maybe abstract class) Defined by the LEGACY CLIENT (input: XML and Meter)
+// You can create a class that follows the interface (or maybe abstract class) Defined by the LEGACY CLIENT (input: XML and Meter)
 // The class should also have a reference to the New Library object (As it will interact with both of them)
 // It takes the XML input -> Converts it to the format of New Library -> call service(New Library) object with processed-> hand it back.
 // The class that has the above capabilities called Adapter Class and it is Known as  ADAPTER DESIGN PATTERN.

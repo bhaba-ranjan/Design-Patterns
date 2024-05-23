@@ -54,7 +54,6 @@ class NewYorkCheesePizza: public Product{
         
 };
 
-
 class CaliforniaThinCrustPizza: public Product{
     public:
         virtual ~CaliforniaThinCrustPizza(){}
