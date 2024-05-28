@@ -1,7 +1,7 @@
 #pragma once
 #include<bits/stdc++.h>
 #include<iostream>
-#include "decorator_abstract.cpp"
+#include "decorator_abstract.hpp"
 using namespace std;
 
 class WhippedCream: public CondimentDecorator{
@@ -16,6 +16,7 @@ class WhippedCream: public CondimentDecorator{
             return _beverage->getDescription()+" ,WhippedCream";
         }        
 };
+
 
 class Chocolate: public CondimentDecorator{
     public:
