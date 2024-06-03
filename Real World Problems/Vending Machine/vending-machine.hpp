@@ -4,24 +4,35 @@
 #include "item.hpp"
 #include "maintianer.hpp"
 #include "state_interface.hpp"
+#include "inventory.hpp"
 using namespace std;
 
 class VendingMachine{
 
 private:
-    
-    unordered_map<string, IMaintainer*> maintainers;
+        
     IState *currentState;
-    int totalBill;
-public:
+    IState *readyState;
+    IState *idleState;
+    IState *dispenseState;
 
-    bool placeOrder(string name, int quantity);
-    bool uploadItems(vector<pair<IItem*, int> > items);
-    void insertMoney(int money);
-    void verifyMoney(int money, int total);
-    void dispenseOrder(IItem *item, int quantity);
-    IMaintainer* login(string userId, string passWord);
+public:
+    VendingMachine();
+
+    Inventory *inventory;
+    string selectedProduct;
+
+    void selectProduct(string name);    
+    void insertMoney(int money);    
+    void dispenseOrder();    
 
     void setState(IState* newState);
-    IState* getState();
+    void setSelectedProduct(string name);
+    
+
+    IState* getReadyState() const;
+
+    IState* getIdleSate() const;
+
+    IState* getDispenseState() const;
 };

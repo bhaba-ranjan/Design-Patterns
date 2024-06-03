@@ -9,9 +9,12 @@ class Product{
 public:
     string name;
     int quantity;
+    int price;
 
-    Product(string name, string id){
+    Product(string name, int quantity, int price){
         this->name = name;
+        this->quantity = quantity;
+        this->price = price;
     }    
 
     string getName() const {
@@ -33,12 +36,16 @@ public:
 };
     
 class Inventory {
+
 public:
     unordered_map<string, int>productQuantityMapper;
+    unordered_map<string, int>productPriceMapper;
 
     bool addProduct(Product *product){        
         if(productQuantityMapper.find(product->name) == productQuantityMapper.end()){
             productQuantityMapper[product->name] = product->quantity;
+            productPriceMapper[product->name] = product->price;
+
             return true;
         }else{
             productQuantityMapper[product->name] = product->quantity;
@@ -48,11 +55,21 @@ public:
         return false;
     }
 
-    bool removeProduct(Product *product){
-        if(productQuantityMapper.find(product->name) != productQuantityMapper.end()){
-            productQuantityMapper.erase(product->name);
+    bool removeProduct(string name){
+        productQuantityMapper[name] -= 1;
+        if(productQuantityMapper[name] == 0) {
+            productQuantityMapper.erase(name);
         }
+        return true;
     }
 
+    bool isAvailable(string name){
+        if(productQuantityMapper.find(name) == productQuantityMapper.end()) return false;
+        return productQuantityMapper[name] > 0;
+    }
+
+    int getPrice(string name){
+        return productPriceMapper[name];
+    }
     
 };
