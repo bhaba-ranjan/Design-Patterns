@@ -73,9 +73,9 @@ class CaliforniaThinCrustPizza: public Product{
 
 
 // Concrete Creator
-class PizzaStore: public FactoryCreator{
+class DominosGMU: public FactoryCreator{
     public:
-        virtual ~PizzaStore(){}
+        virtual ~DominosGMU(){}
         // Offloading the creating logic to subclass
         Product* createProduct(PizzaType type)  {
             if(type == NY) return new NewYorkCheesePizza();
@@ -85,8 +85,8 @@ class PizzaStore: public FactoryCreator{
 };
 
 int main(){
-    PizzaStore* DominosGMU = new PizzaStore();
-    DominosGMU->orderPizza(NY);
-    DominosGMU->orderPizza(CA);
+    DominosGMU* dominosGMU = new DominosGMU();
+    dominosGMU->orderPizza(NY);
+    dominosGMU->orderPizza(CA);
     return 0;
 }

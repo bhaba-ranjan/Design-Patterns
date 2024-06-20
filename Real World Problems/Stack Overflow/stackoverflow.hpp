@@ -20,7 +20,7 @@ private:
 
 public:
 
-    static StackOverFlow* getInstance(){
+    static StackOverFlow* getInstance() {
         _mutex.lock();
         if(_stackOverFlow == nullptr){
             _stackOverFlow = new StackOverFlow();

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class GreenColor: public Color{
+class GreenColor: public Color {
 
 protected:
     string name;
@@ -26,7 +26,7 @@ public:
 
 
 
-class RedColor: public Color{
+class RedColor: public Color {
 
 protected:
     string name;
